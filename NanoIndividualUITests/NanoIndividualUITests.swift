@@ -8,6 +8,8 @@
 
 import XCTest
 
+// swiftlint:disable line_length
+
 class NanoIndividualUITests: XCTestCase {
 
     override func setUpWithError() throws {

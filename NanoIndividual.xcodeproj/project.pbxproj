@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		8874903324E6BBE400D633BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874903224E6BBE400D633BD /* AppDelegate.swift */; };
 		8874903524E6BBE400D633BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874903424E6BBE400D633BD /* SceneDelegate.swift */; };
-		8874903724E6BBE400D633BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874903624E6BBE400D633BD /* ViewController.swift */; };
-		8874903A24E6BBE400D633BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8874903824E6BBE400D633BD /* Main.storyboard */; };
 		8874903C24E6BBE500D633BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8874903B24E6BBE500D633BD /* Assets.xcassets */; };
 		8874903F24E6BBE500D633BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8874903D24E6BBE500D633BD /* LaunchScreen.storyboard */; };
 		8874904A24E6BBE500D633BD /* NanoIndividualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874904924E6BBE500D633BD /* NanoIndividualTests.swift */; };
 		8874905524E6BBE500D633BD /* NanoIndividualUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874905424E6BBE500D633BD /* NanoIndividualUITests.swift */; };
+		8874906424E6CA4300D633BD /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8874906324E6CA4300D633BD /* .swiftlint.yml */; };
+		8874906624E70A3200D633BD /* NetworkRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874906524E70A3200D633BD /* NetworkRequests.swift */; };
+		8874906824E70BDC00D633BD /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874906724E70BDC00D633BD /* NetworkModel.swift */; };
+		88F519CA24EBF83B00A08A5F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519C924EBF83B00A08A5F /* CategoryViewController.swift */; };
+		88F519CC24EBFB3E00A08A5F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */; };
+		88F519CE24EBFCED00A08A5F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519CD24EBFCED00A08A5F /* FavoriteViewController.swift */; };
+		88F519D024EBFD0200A08A5F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519CF24EBFD0200A08A5F /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +43,6 @@
 		8874902F24E6BBE400D633BD /* NanoIndividual.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoIndividual.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8874903224E6BBE400D633BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8874903424E6BBE400D633BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8874903624E6BBE400D633BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8874903924E6BBE400D633BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8874903B24E6BBE500D633BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8874903E24E6BBE500D633BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8874904024E6BBE500D633BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +52,13 @@
 		8874905024E6BBE500D633BD /* NanoIndividualUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NanoIndividualUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8874905424E6BBE500D633BD /* NanoIndividualUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NanoIndividualUITests.swift; sourceTree = "<group>"; };
 		8874905624E6BBE500D633BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8874906324E6CA4300D633BD /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		8874906524E70A3200D633BD /* NetworkRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequests.swift; sourceTree = "<group>"; };
+		8874906724E70BDC00D633BD /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		88F519C924EBF83B00A08A5F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		88F519CD24EBFCED00A08A5F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		88F519CF24EBFD0200A08A5F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,7 @@
 		8874902624E6BBE400D633BD = {
 			isa = PBXGroup;
 			children = (
+				8874906324E6CA4300D633BD /* .swiftlint.yml */,
 				8874903124E6BBE400D633BD /* NanoIndividual */,
 				8874904824E6BBE500D633BD /* NanoIndividualTests */,
 				8874905324E6BBE500D633BD /* NanoIndividualUITests */,
@@ -101,8 +112,12 @@
 			children = (
 				8874903224E6BBE400D633BD /* AppDelegate.swift */,
 				8874903424E6BBE400D633BD /* SceneDelegate.swift */,
-				8874903624E6BBE400D633BD /* ViewController.swift */,
-				8874903824E6BBE400D633BD /* Main.storyboard */,
+				88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */,
+				88F519C924EBF83B00A08A5F /* CategoryViewController.swift */,
+				88F519CD24EBFCED00A08A5F /* FavoriteViewController.swift */,
+				88F519CF24EBFD0200A08A5F /* SearchViewController.swift */,
+				8874906524E70A3200D633BD /* NetworkRequests.swift */,
+				8874906724E70BDC00D633BD /* NetworkModel.swift */,
 				8874903B24E6BBE500D633BD /* Assets.xcassets */,
 				8874903D24E6BBE500D633BD /* LaunchScreen.storyboard */,
 				8874904024E6BBE500D633BD /* Info.plist */,
@@ -138,6 +153,7 @@
 				8874902B24E6BBE400D633BD /* Sources */,
 				8874902C24E6BBE400D633BD /* Frameworks */,
 				8874902D24E6BBE400D633BD /* Resources */,
+				8874906224E6C3E600D633BD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -232,9 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8874906424E6CA4300D633BD /* .swiftlint.yml in Resources */,
 				8874903F24E6BBE500D633BD /* LaunchScreen.storyboard in Resources */,
 				8874903C24E6BBE500D633BD /* Assets.xcassets in Resources */,
-				8874903A24E6BBE400D633BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +270,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8874906224E6C3E600D633BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8874902B24E6BBE400D633BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8874903724E6BBE400D633BD /* ViewController.swift in Sources */,
+				88F519CA24EBF83B00A08A5F /* CategoryViewController.swift in Sources */,
 				8874903324E6BBE400D633BD /* AppDelegate.swift in Sources */,
+				88F519D024EBFD0200A08A5F /* SearchViewController.swift in Sources */,
+				88F519CC24EBFB3E00A08A5F /* MainTabBarController.swift in Sources */,
+				88F519CE24EBFCED00A08A5F /* FavoriteViewController.swift in Sources */,
+				8874906624E70A3200D633BD /* NetworkRequests.swift in Sources */,
+				8874906824E70BDC00D633BD /* NetworkModel.swift in Sources */,
 				8874903524E6BBE400D633BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +338,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8874903824E6BBE400D633BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8874903924E6BBE400D633BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8874903D24E6BBE500D633BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -15,11 +15,22 @@ extension UIColor {
     static let coralOrange = UIColor(red: 1.00, green: 0.54, blue: 0.44, alpha: 1.00)
 }
 
-class FirstBackgroundGradient{
+extension UIImage {
+
+    convenience init?(withContentsOfUrl name: String) throws {
+        guard let resourceURL = URL(string: name) else {fatalError() }
+        let imageData = try Data(contentsOf: resourceURL)
+
+        self.init(data: imageData)
+    }
+
+}
+
+class FirstBackgroundGradient {
 
     var gradientLayer: CAGradientLayer
 
-   init(){
+   init() {
     let colorTop = UIColor(red: 0.14, green: 0.14, blue: 0.14, alpha: 0.7).cgColor
     let colorBottom = UIColor(red: 0.62, green: 0.62, blue: 0.62, alpha: 0).cgColor
 

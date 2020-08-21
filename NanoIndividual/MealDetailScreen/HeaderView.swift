@@ -30,14 +30,14 @@ class HeaderView: UIView {
             let favoriteImage = UIImage(systemName: "star.fill")
             let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
             favoriteButton.setImage(blackFavoriteImage, for: .normal)
-        } else{
+        } else {
             let favoriteImage = UIImage(systemName: "star")
             let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
             favoriteButton.setImage(blackFavoriteImage, for: .normal)
         }
     }
     
-    func configMealTitle(){
+    func configMealTitle() {
         addSubview(mealTitle)
         mealTitle.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
@@ -56,7 +56,7 @@ class HeaderView: UIView {
         
     }
     
-    @objc func pressFavoriteButton(sender: UIButton){
+    @objc func pressFavoriteButton(sender: UIButton) {
         let favoriteImage = UIImage(systemName: "star.fill")
         let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
         favoriteButton.setImage(blackFavoriteImage, for: .normal)

@@ -22,6 +22,10 @@
 		88928DDA24EEC198004DFAAB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88928DD924EEC198004DFAAB /* HeaderView.swift */; };
 		88967B9B24EDC3760084F3AD /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88967B9A24EDC3760084F3AD /* MealDetailViewController.swift */; };
 		88BBF84224ED73ED001C13F3 /* AllMealsOfCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BBF84124ED73ED001C13F3 /* AllMealsOfCategoryViewController.swift */; };
+		88DF6F9524F03C6B0086296B /* FileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9424F03C6B0086296B /* FileController.swift */; };
+		88DF6F9724F03CDF0086296B /* DataManagerAllMeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9624F03CDF0086296B /* DataManagerAllMeals.swift */; };
+		88DF6F9924F045A80086296B /* DataManagerCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9824F045A80086296B /* DataManagerCategories.swift */; };
+		88DF6F9B24F047190086296B /* DataManagerMeailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9A24F047190086296B /* DataManagerMeailDetail.swift */; };
 		88F519CA24EBF83B00A08A5F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519C924EBF83B00A08A5F /* CategoryViewController.swift */; };
 		88F519CC24EBFB3E00A08A5F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */; };
 		88F519CE24EBFCED00A08A5F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519CD24EBFCED00A08A5F /* FavoriteViewController.swift */; };
@@ -70,6 +74,10 @@
 		88928DD924EEC198004DFAAB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		88967B9A24EDC3760084F3AD /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 		88BBF84124ED73ED001C13F3 /* AllMealsOfCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMealsOfCategoryViewController.swift; sourceTree = "<group>"; };
+		88DF6F9424F03C6B0086296B /* FileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileController.swift; sourceTree = "<group>"; };
+		88DF6F9624F03CDF0086296B /* DataManagerAllMeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerAllMeals.swift; sourceTree = "<group>"; };
+		88DF6F9824F045A80086296B /* DataManagerCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerCategories.swift; sourceTree = "<group>"; };
+		88DF6F9A24F047190086296B /* DataManagerMeailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerMeailDetail.swift; sourceTree = "<group>"; };
 		88F519C924EBF83B00A08A5F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		88F519CD24EBFCED00A08A5F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -128,11 +136,12 @@
 		8874903124E6BBE400D633BD /* NanoIndividual */ = {
 			isa = PBXGroup;
 			children = (
-				88928DDB24EF14B0004DFAAB /* FavoriteScreen */,
+				88DF6F9324F03C3E0086296B /* FileManager */,
 				88A5411124EEAD7000B106AF /* Nertworking */,
 				88967B9924EDC31D0084F3AD /* MealDetailScreen */,
 				88BBF84424EDA6B2001C13F3 /* AllMealsScreen */,
 				88BBF84324EDA696001C13F3 /* CategoryScreen */,
+				88928DDB24EF14B0004DFAAB /* FavoriteScreen */,
 				8874903224E6BBE400D633BD /* AppDelegate.swift */,
 				8874903424E6BBE400D633BD /* SceneDelegate.swift */,
 				88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */,
@@ -208,6 +217,17 @@
 				8815C58824EDB2D600A47140 /* AllMeals.xib */,
 			);
 			path = AllMealsScreen;
+			sourceTree = "<group>";
+		};
+		88DF6F9324F03C3E0086296B /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				88DF6F9424F03C6B0086296B /* FileController.swift */,
+				88DF6F9624F03CDF0086296B /* DataManagerAllMeals.swift */,
+				88DF6F9824F045A80086296B /* DataManagerCategories.swift */,
+				88DF6F9A24F047190086296B /* DataManagerMeailDetail.swift */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,11 +387,14 @@
 				88F519CA24EBF83B00A08A5F /* CategoryViewController.swift in Sources */,
 				8874903324E6BBE400D633BD /* AppDelegate.swift in Sources */,
 				88F519D024EBFD0200A08A5F /* SearchViewController.swift in Sources */,
+				88DF6F9524F03C6B0086296B /* FileController.swift in Sources */,
 				88F519CC24EBFB3E00A08A5F /* MainTabBarController.swift in Sources */,
+				88DF6F9924F045A80086296B /* DataManagerCategories.swift in Sources */,
 				88BBF84224ED73ED001C13F3 /* AllMealsOfCategoryViewController.swift in Sources */,
 				88F519CE24EBFCED00A08A5F /* FavoriteViewController.swift in Sources */,
 				88967B9B24EDC3760084F3AD /* MealDetailViewController.swift in Sources */,
 				8874906624E70A3200D633BD /* NetworkRequests.swift in Sources */,
+				88DF6F9724F03CDF0086296B /* DataManagerAllMeals.swift in Sources */,
 				88F519D624EC505B00A08A5F /* CategoryCollectionViewCell.swift in Sources */,
 				8874906824E70BDC00D633BD /* NetworkModel.swift in Sources */,
 				8815C58724EDAC9A00A47140 /* AllMealsOfCategoryTableViewCell.swift in Sources */,
@@ -379,6 +402,7 @@
 				88F519D224EC122200A08A5F /* Extensions.swift in Sources */,
 				88928DDA24EEC198004DFAAB /* HeaderView.swift in Sources */,
 				887E4EE024EF202E0097ED73 /* FavoriteUserDefault.swift in Sources */,
+				88DF6F9B24F047190086296B /* DataManagerMeailDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

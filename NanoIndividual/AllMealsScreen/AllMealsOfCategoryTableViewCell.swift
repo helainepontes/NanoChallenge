@@ -28,11 +28,11 @@ class AllMealsOfCategoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func configText(){
+    func configText() {
         mealTitle.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
     }
     
-    func configView(){
+    func configView() {
         mealView.backgroundColor = .backgroundGray
         mealContentView.backgroundColor = .backgroundYellow
         self.mealView.layer.masksToBounds = true

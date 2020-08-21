@@ -16,7 +16,7 @@ class MainTabBarController: UITabBarController {
         setUpTabBar()
     }
     
-    func setUpTabBar(){
+    func setUpTabBar() {
         let categoryController = UINavigationController(rootViewController: CategoryViewController())
         categoryController.tabBarItem.image = UIImage(systemName: "square.grid.2x2")
         categoryController.tabBarItem.title = "Category"

@@ -26,19 +26,20 @@ class Persistence {
         }
     }
     
-    func removeAll(){
+    func removeAll() {
         objects.removeAll()
         save()
     }
 
     func add(object: String) {
-        if !existObjetc(object: object){
+        print(objects)
+        if !existObjetc(object: object) {
             objects.append(object)
-            save()
         }
+        save()
     }
     
-    func removeObject(index: Int){
+    func removeObject(index: Int) {
         objects.remove(at: index)
         save()
     }

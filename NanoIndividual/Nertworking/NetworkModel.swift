@@ -8,31 +8,31 @@
 
 import Foundation
 
-struct AllCategories: Decodable{
+struct AllCategories: Codable {
     let categories: [Category]
 }
 
-struct Category: Decodable {
+struct Category: Codable {
     let idCategory: String
     let strCategory: String
     let strCategoryThumb: String
 }
 
-struct AllMeals: Decodable {
+struct AllMeals: Codable {
     let meals: [Meal]
 }
 
-struct Meal: Decodable {
+struct Meal: Codable {
     let idMeal: String
     let strMeal: String
     let strMealThumb: String
 }
 
-struct Receps: Decodable{
+struct Receps: Codable {
     let meals: [MealDetail]
 }
 
-struct MealDetail: Decodable {
+struct MealDetail: Codable {
     let idMeal: String
     let strMeal: String
     let strCategory: String
@@ -81,6 +81,6 @@ struct MealDetail: Decodable {
     let strMeasure20: String
 }
 
-struct Area: Decodable {
+struct Area: Codable {
     let meals: [Meal]
 }

@@ -21,7 +21,7 @@ class MealDetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     var detailMeal = [MealDetail]() {
-        didSet{
+        didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -50,21 +50,26 @@ class MealDetailViewController: UIViewController {
         gradient.frame = gradientView.bounds
     }
     
-    func mealRequest(){
+    func mealRequest() {
         let formattedString = meal.replacingOccurrences(of: " ", with: "%20")
         print("String: \(formattedString)")
         let categoryRequest = NetworkRequest(meal: formattedString)
         categoryRequest.getMealDetail { result in
-            switch result{
+            switch result {
             case .failure(let error):
                 print(error)
             case .success(let meal):
                 self.detailMeal = meal
+                createDetailNewFile(data: meal)
             }
         }
+        guard let saveDetails = readDetailDataFromFile() else {
+            return
+        }
+        detailMeal = saveDetails
     }
     
-    func configGradientView(){
+    func configGradientView() {
         view.addSubview(gradientView)
         
         //Constraints
@@ -75,9 +80,9 @@ class MealDetailViewController: UIViewController {
         gradientView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
-    func configImage(){
+    func configImage() {
         view.addSubview(mealImage)
-        mealImage.image = UIImage(named: "frango")
+        mealImage.image = try? UIImage(withContentsOfUrl: detailMeal[0].strMealThumb)
         
         //Constraints
         mealImage.translatesAutoresizingMaskIntoConstraints = false
@@ -87,7 +92,7 @@ class MealDetailViewController: UIViewController {
         mealImage.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 304).isActive = true
     }
     
-    func configDetailsView(){
+    func configDetailsView() {
         view.addSubview(detailsView)
         detailsView.backgroundColor = .red
         detailsView.layer.masksToBounds = true
@@ -103,7 +108,7 @@ class MealDetailViewController: UIViewController {
         
     }
     
-    func configTableView(){
+    func configTableView() {
         detailsView.addSubview(tableView)
         tableView.backgroundColor = .backgroundYellow
 //        tableView.separatorStyle = .none

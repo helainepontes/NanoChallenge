@@ -18,7 +18,14 @@ class CategoryViewController: UIViewController {
     }()
     
     var listOfCategory = [Category]() {
-        didSet{
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    var categoryImage = [Data]() {
+        didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -31,16 +38,33 @@ class CategoryViewController: UIViewController {
         categoryRequest()
     }
     
-    func categoryRequest(){
+    func categoryRequest() {
         let categoryRequest = NetworkRequest()
         categoryRequest.getCategories { result in
-            switch result{
+            switch result {
             case .failure(let error):
                 print(error)
             case .success(let categories):
                 self.listOfCategory = categories
+                createCategoryNewFile(data: categories)
             }
         }
+        guard let saveCategories = readCategoryDataFromFile() else {
+            return
+        }
+        listOfCategory = saveCategories
+        
+//        for index in 0..<saveCategories.count {
+//            let imageRequest = NetworkRequest(image: saveCategories[index].strCategoryThumb)
+//            imageRequest.getImage { result in
+//                switch result {
+//                case .failure(let error):
+//                    print(error)
+//                case .success(let image):
+//                    self.categoryImage.append(image)
+//                }
+//            }
+//        }
     }
     
     func configureVC() {
@@ -55,7 +79,7 @@ class CategoryViewController: UIViewController {
         collectionViewConstraits()
     }
     
-    func configureCollectionView(){
+    func configureCollectionView() {
         collectionView.delegate = self 
         collectionView.dataSource = self
         collectionView.backgroundColor = .backgroundYellow
@@ -64,7 +88,7 @@ class CategoryViewController: UIViewController {
         collectionView.register(cellNib, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
     }
     
-    func collectionViewConstraits(){
+    func collectionViewConstraits() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 132).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -73,7 +97,7 @@ class CategoryViewController: UIViewController {
     }
     
 }
-extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 200)
     }
@@ -87,11 +111,11 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else{
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else {
             fatalError()
         }
         let category = listOfCategory[indexPath.row]
-        cell.categoryImage.image = UIImage(named: "frango")
+        cell.categoryImage.image = try? UIImage(withContentsOfUrl: listOfCategory[indexPath.row].strCategoryThumb)
         cell.categoryTitle.text = category.strCategory
         
         return cell

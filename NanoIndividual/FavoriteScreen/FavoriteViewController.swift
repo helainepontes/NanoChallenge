@@ -34,7 +34,7 @@ class FavoriteViewController: UIViewController {
        navigationController?.navigationBar.tintColor = .coralOrange
     }
     
-    func configTableView(){
+    func configTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .backgroundYellow
@@ -59,7 +59,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AllMealsOfCategoryTableViewCell.identifier, for: indexPath) as? AllMealsOfCategoryTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AllMealsOfCategoryTableViewCell.identifier, for: indexPath) as? AllMealsOfCategoryTableViewCell else {
             fatalError()
         }
         cell.mealImageView.image = UIImage(named: "frango")

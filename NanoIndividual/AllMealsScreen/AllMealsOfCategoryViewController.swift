@@ -14,7 +14,7 @@ class AllMealsOfCategoryViewController: UIViewController {
     let tableView: UITableView = UITableView()
     
     var listOfMeals = [Meal]() {
-        didSet{
+        didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -37,19 +37,25 @@ class AllMealsOfCategoryViewController: UIViewController {
         mealsRequest()
     }
     
-    func mealsRequest(){
+    func mealsRequest() {
         let mealsRequest = NetworkRequest(category: category)
         mealsRequest.getMeals { result in
-            switch result{
+            switch result {
             case .failure(let error):
                 print(error)
             case .success(let meals):
                 self.listOfMeals = meals
+                createMealNewFile(data: meals)
             }
         }
+        guard let saveMeals = readMealDataFromFile() else {
+            print("ops")
+            return
+        }
+        listOfMeals = saveMeals
     }
     
-    func configView(){
+    func configView() {
         view.addSubview(tableView)
         self.view.insertSubview(UIView(frame: .zero), at: 0)
         view.backgroundColor = .backgroundYellow
@@ -58,7 +64,7 @@ class AllMealsOfCategoryViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .coralOrange
     }
     
-    func configTableView(){
+    func configTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .backgroundYellow
@@ -85,12 +91,12 @@ extension AllMealsOfCategoryViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AllMealsOfCategoryTableViewCell.identifier, for: indexPath) as? AllMealsOfCategoryTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AllMealsOfCategoryTableViewCell.identifier, for: indexPath) as? AllMealsOfCategoryTableViewCell else {
             fatalError()
         }
         
         let meal = listOfMeals[indexPath.row]
-        cell.mealImageView.image = UIImage(named: "frango")
+        cell.mealImageView.image = try? UIImage(withContentsOfUrl: listOfMeals[indexPath.row].strMealThumb)
         cell.mealTitle.text = meal.strMeal
         
         return cell

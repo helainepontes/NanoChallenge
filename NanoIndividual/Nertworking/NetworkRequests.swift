@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 enum NetworkingError: Error{
     case noDataAvailable
     case canNotProcessData
@@ -32,6 +30,7 @@ struct NetworkRequest {
     }
     init(meal: String){
         let resourceString = "https://www.themealdb.com/api/json/v1/1/search.php?s=\(meal)"
+        print("URL : \(resourceString)")
         
         guard let resourceURL = URL(string: resourceString) else{fatalError()}
         self.resourceURL = resourceURL
@@ -72,7 +71,6 @@ struct NetworkRequest {
                 do{
                     let allMeals = try JSONDecoder().decode(AllMeals.self, from: jsonData)
                     let meals = allMeals.meals
-                    print(meals)
                     completion(.success(meals))
                 } catch{
                     completion(.failure(.canNotProcessData))
@@ -93,7 +91,6 @@ struct NetworkRequest {
                     let mealDetail = try JSONDecoder().decode(Receps.self, from: jsonData)
                     let meals = mealDetail.meals
                     completion(.success(meals))
-                    print("MealDetail: \(meals)")
                 } catch{
                     completion(.failure(.canNotProcessData))
                 }

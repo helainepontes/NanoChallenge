@@ -50,8 +50,7 @@ class HeaderView: UIView {
         addSubview(favoriteButton)
         
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24).isActive = true
-        favoriteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        NSLayoutConstraint.activateConstraints([favoriteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),  favoriteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)])
         favoriteButton.addTarget(self, action: #selector(pressFavoriteButton), for: .touchUpInside)
         
     }

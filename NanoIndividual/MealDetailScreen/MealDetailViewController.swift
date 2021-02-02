@@ -16,8 +16,9 @@ class MealDetailViewController: UIViewController {
     var detailsView = UIView()
     var gradientView = UIView()
     
-    init(meal: String) {
+    init(meal: String, image: UIImage) {
         self.meal = meal
+        self.mealImage.image = image
         super.init(nibName: nil, bundle: nil)
     }
     var detailMeal = [MealDetail]() {
@@ -66,7 +67,9 @@ class MealDetailViewController: UIViewController {
         guard let saveDetails = readDetailDataFromFile() else {
             return
         }
+        print(saveDetails)
         detailMeal = saveDetails
+        mealImage.image = try? UIImage(withContentsOfUrl: detailMeal[0].strMealThumb)
     }
     
     func configGradientView() {
@@ -82,7 +85,6 @@ class MealDetailViewController: UIViewController {
     
     func configImage() {
         view.addSubview(mealImage)
-        mealImage.image = try? UIImage(withContentsOfUrl: detailMeal[0].strMealThumb)
         
         //Constraints
         mealImage.translatesAutoresizingMaskIntoConstraints = false

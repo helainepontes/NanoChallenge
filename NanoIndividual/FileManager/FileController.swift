@@ -12,7 +12,16 @@ struct FileController {
 
     let manager = FileManager.default
     let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
+    
+    func constructPath(named: String, from path: String? = nil) -> URL {
+        let contentPath = mainPath
+        if let path = path {
+            return contentPath.appendingPathComponent(path).appendingPathComponent(named)
+        } else {
+            return contentPath.appendingPathComponent(named)
+        }
+    }
+    
     @discardableResult
     func createFile(with data: Data, name: String) -> Bool {
         let contentPath = constructPath(named: name)
@@ -29,15 +38,6 @@ struct FileController {
         } catch let error {
             print(error.localizedDescription)
             return false
-        }
-    }
-
-    func constructPath(named: String, from path: String? = nil) -> URL {
-        let contentPath = mainPath
-        if let path = path {
-            return contentPath.appendingPathComponent(path).appendingPathComponent(named)
-        } else {
-            return contentPath.appendingPathComponent(named)
         }
     }
 

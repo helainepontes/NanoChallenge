@@ -32,7 +32,6 @@ class Persistence {
     }
 
     func add(object: String) {
-        print(objects)
         if !existObjetc(object: object) {
             objects.append(object)
         }
@@ -40,7 +39,13 @@ class Persistence {
     }
     
     func removeObject(index: Int) {
-        objects.remove(at: index)
+        print(index)
+        print(objects.count)
+        if index == 0 {
+           objects.remove(at: index)
+        } else {
+          objects.remove(at: index-1)
+        }
         save()
     }
     

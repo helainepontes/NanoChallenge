@@ -25,7 +25,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configTitle()
-        categoryView.backgroundColor = .coralOrange
+        categoryView.backgroundColor = .backgroundGray
         self.categoryView.layer.masksToBounds = true
         categoryView.layer.cornerRadius = 10
         self.layer.shadowColor = UIColor.black.cgColor
@@ -35,5 +35,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     func configTitle() {
         categoryTitle.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        categoryTitle.textColor = .black
     }
 }

@@ -60,6 +60,7 @@ class AllMealsOfCategoryViewController: UIViewController {
         self.view.insertSubview(UIView(frame: .zero), at: 0)
         view.backgroundColor = .backgroundYellow
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.barTintColor = .black
         navigationItem.title = category
         navigationController?.navigationBar.tintColor = .coralOrange
     }
@@ -104,7 +105,8 @@ extension AllMealsOfCategoryViewController: UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let meal = listOfMeals[indexPath.row].strMeal
-        navigationController?.pushViewController(MealDetailViewController(meal: meal), animated: true)
+        let image = try? UIImage(withContentsOfUrl: listOfMeals[indexPath.row].strMealThumb)
+        navigationController?.pushViewController(MealDetailViewController(meal: meal, image: image!), animated: true)
     }
 
 }

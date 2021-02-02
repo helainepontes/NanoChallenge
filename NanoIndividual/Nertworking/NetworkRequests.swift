@@ -48,8 +48,8 @@ struct NetworkRequest {
         self.resourceURL = resourceURL
     }
     
-    func getCategories(completion: @escaping(Result<[Category], NetworkingError>) -> Void) {
-        let dataTask = URLSession.shared.dataTask(with: resourceURL, completionHandler: {data, _, _ in
+    func getCategories(session: URLSession = URLSession.shared, completion: @escaping(Result<[Category], NetworkingError>) -> Void) {
+        let dataTask = session.dataTask(with: resourceURL, completionHandler: {data, _, _ in
             DispatchQueue.main.async {
                 guard let jsonData = data else {
                     completion(.failure(.noDataAvailable))
@@ -118,19 +118,6 @@ struct NetworkRequest {
                 } catch {
                     completion(.failure(.canNotProcessData))
                 }
-            }
-            })
-        dataTask.resume()
-    }
-    
-    func getImage(completion: @escaping(Result<Data, NetworkingError>) -> Void) {
-        let dataTask = URLSession.shared.dataTask(with: resourceURL, completionHandler: {data, _, _ in
-            DispatchQueue.main.async {
-                guard let jsonData = data else {
-                    completion(.failure(.noDataAvailable))
-                    return
-                }
-                completion(.success(jsonData))
             }
             })
         dataTask.resume()

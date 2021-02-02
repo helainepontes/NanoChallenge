@@ -20,7 +20,6 @@ extension UIImage {
     convenience init?(withContentsOfUrl name: String) throws {
         guard let resourceURL = URL(string: name) else {fatalError() }
         let imageData = try Data(contentsOf: resourceURL)
-
         self.init(data: imageData)
     }
 

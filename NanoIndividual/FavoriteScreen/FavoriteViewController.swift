@@ -70,17 +70,17 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            tableView.beginUpdates()
             listOfFavorites.remove(at: indexPath.row)
             getFavorite.removeObject(index: indexPath.row)
-            tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let meal = listOfFavorites[indexPath.row]
-        navigationController?.pushViewController(MealDetailViewController(meal: meal), animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let meal = listOfFavorites[indexPath.row]
+//        navigationController?.pushViewController(MealDetailViewController(meal: meal, image: ), animated: true)
+//    }
 
 }

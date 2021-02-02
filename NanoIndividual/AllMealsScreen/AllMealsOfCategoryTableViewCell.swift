@@ -30,6 +30,7 @@ class AllMealsOfCategoryTableViewCell: UITableViewCell {
     
     func configText() {
         mealTitle.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        mealTitle.textColor = .black
     }
     
     func configView() {

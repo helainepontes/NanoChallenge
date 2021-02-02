@@ -26,6 +26,9 @@
 		88DF6F9724F03CDF0086296B /* DataManagerAllMeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9624F03CDF0086296B /* DataManagerAllMeals.swift */; };
 		88DF6F9924F045A80086296B /* DataManagerCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9824F045A80086296B /* DataManagerCategories.swift */; };
 		88DF6F9B24F047190086296B /* DataManagerMeailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9A24F047190086296B /* DataManagerMeailDetail.swift */; };
+		88DF6F9D24F1AA7A0086296B /* NetworkingRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9C24F1AA7A0086296B /* NetworkingRequestTest.swift */; };
+		88DF6FA024F1AEEB0086296B /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6F9F24F1AEEB0086296B /* URLSessionMock.swift */; };
+		88DF6FA224F1CBAF0086296B /* DataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF6FA124F1CBAF0086296B /* DataTaskMock.swift */; };
 		88F519CA24EBF83B00A08A5F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519C924EBF83B00A08A5F /* CategoryViewController.swift */; };
 		88F519CC24EBFB3E00A08A5F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */; };
 		88F519CE24EBFCED00A08A5F /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F519CD24EBFCED00A08A5F /* FavoriteViewController.swift */; };
@@ -78,6 +81,9 @@
 		88DF6F9624F03CDF0086296B /* DataManagerAllMeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerAllMeals.swift; sourceTree = "<group>"; };
 		88DF6F9824F045A80086296B /* DataManagerCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerCategories.swift; sourceTree = "<group>"; };
 		88DF6F9A24F047190086296B /* DataManagerMeailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerMeailDetail.swift; sourceTree = "<group>"; };
+		88DF6F9C24F1AA7A0086296B /* NetworkingRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingRequestTest.swift; sourceTree = "<group>"; };
+		88DF6F9F24F1AEEB0086296B /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		88DF6FA124F1CBAF0086296B /* DataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskMock.swift; sourceTree = "<group>"; };
 		88F519C924EBF83B00A08A5F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		88F519CB24EBFB3E00A08A5F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		88F519CD24EBFCED00A08A5F /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -157,8 +163,10 @@
 		8874904824E6BBE500D633BD /* NanoIndividualTests */ = {
 			isa = PBXGroup;
 			children = (
+				88DF6F9E24F1AEA20086296B /* Mocks */,
 				8874904924E6BBE500D633BD /* NanoIndividualTests.swift */,
 				8874904B24E6BBE500D633BD /* Info.plist */,
+				88DF6F9C24F1AA7A0086296B /* NetworkingRequestTest.swift */,
 			);
 			path = NanoIndividualTests;
 			sourceTree = "<group>";
@@ -228,6 +236,15 @@
 				88DF6F9A24F047190086296B /* DataManagerMeailDetail.swift */,
 			);
 			path = FileManager;
+			sourceTree = "<group>";
+		};
+		88DF6F9E24F1AEA20086296B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				88DF6F9F24F1AEEB0086296B /* URLSessionMock.swift */,
+				88DF6FA124F1CBAF0086296B /* DataTaskMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,7 +427,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DF6FA224F1CBAF0086296B /* DataTaskMock.swift in Sources */,
+				88DF6FA024F1AEEB0086296B /* URLSessionMock.swift in Sources */,
 				8874904A24E6BBE500D633BD /* NanoIndividualTests.swift in Sources */,
+				88DF6F9D24F1AA7A0086296B /* NetworkingRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

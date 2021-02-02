@@ -73,6 +73,7 @@ class CategoryViewController: UIViewController {
         view.backgroundColor = .backgroundYellow
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Category"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
 
         //Metódo de configuração da CollectionView
         configureCollectionView()

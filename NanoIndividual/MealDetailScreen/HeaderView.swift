@@ -40,6 +40,7 @@ class HeaderView: UIView {
     func configMealTitle() {
         addSubview(mealTitle)
         mealTitle.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        mealTitle.textColor = .black
         
         mealTitle.translatesAutoresizingMaskIntoConstraints = false
         mealTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true

@@ -11,8 +11,8 @@ import UIKit
 class FavoriteViewController: UIViewController {
 
     let tableView: UITableView = UITableView()
-    let getFavorite = Persistence()
-    var listOfFavorites = [String]()
+    var listOfFavorites = [MealPersistence]()
+    let coreDataManager = CoreDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +21,11 @@ class FavoriteViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        listOfFavorites = getFavorite.persistedObjects()
-        tableView.reloadData()
+        //listOfFavorites = getFavorite.persistedObjects()
+        listOfFavorites = coreDataManager.fetchFavoriteMeal()!//NÃO MATAR ESSE GATINHO
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     func configureVC() {
@@ -63,20 +66,31 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError()
         }
         cell.mealImageView.image = UIImage(named: "frango")
-        cell.mealTitle.text = listOfFavorites[indexPath.row]
+        cell.mealTitle.text = listOfFavorites[indexPath.row].name
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-            listOfFavorites.remove(at: indexPath.row)
-            getFavorite.removeObject(index: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+            let mealToRemove = self.listOfFavorites[indexPath.row]
+            self.coreDataManager.removeFavoriteMeal(meal: mealToRemove)
+            self.listOfFavorites.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
+        return UISwipeActionsConfiguration(actions: [action])
     }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            tableView.beginUpdates()
+//            let mealToRemove = listOfFavorites[indexPath.row]
+//            coreDataManager.removeFavoriteMeal(meal: mealToRemove)
+//            //tableView.deleteRows(at: [indexPath], with: .automatic)
+//            tableView.endUpdates()
+//        }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let meal = listOfFavorites[indexPath.row]

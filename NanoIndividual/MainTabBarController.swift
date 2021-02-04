@@ -21,11 +21,11 @@ class MainTabBarController: UITabBarController {
         categoryController.tabBarItem.title = "Category"
         
         let favoriteController = UINavigationController(rootViewController: FavoriteViewController())
-        favoriteController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        favoriteController.tabBarItem.image = UIImage(systemName: "star")
         favoriteController.tabBarItem.title = "Favorite"
         
         let searchController = UINavigationController(rootViewController: SearchViewController())
-        searchController.tabBarItem.image = UIImage(systemName: "star")
+        searchController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         searchController.tabBarItem.title = "Search"
         
         viewControllers = [categoryController, favoriteController, searchController]

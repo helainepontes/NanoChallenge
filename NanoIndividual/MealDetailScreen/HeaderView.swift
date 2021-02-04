@@ -12,13 +12,13 @@ class HeaderView: UIView {
 
     let mealTitle = UILabel()
     let favoriteButton = UIButton()
-    let saveFavorites = Persistence()
+    let coreDataManager = CoreDataManager()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configMealTitle()
         configFavoriteButton()
-    }
+}
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -26,15 +26,15 @@ class HeaderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        if saveFavorites.existObjetc(object: mealTitle.text!) {
-            let favoriteImage = UIImage(systemName: "star.fill")
-            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
-            favoriteButton.setImage(blackFavoriteImage, for: .normal)
-        } else {
-            let favoriteImage = UIImage(systemName: "star")
-            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
-            favoriteButton.setImage(blackFavoriteImage, for: .normal)
-        }
+//        if saveFavorites.existObjetc(object: mealTitle.text!) {
+//            let favoriteImage = UIImage(systemName: "star.fill")
+//            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
+//            favoriteButton.setImage(blackFavoriteImage, for: .normal)
+//        } else {
+//            let favoriteImage = UIImage(systemName: "star")
+//            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
+//            favoriteButton.setImage(blackFavoriteImage, for: .normal)
+//        }
     }
     
     func configMealTitle() {
@@ -51,7 +51,7 @@ class HeaderView: UIView {
         addSubview(favoriteButton)
         
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activateConstraints([favoriteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),  favoriteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)])
+        NSLayoutConstraint.activate([favoriteButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24), favoriteButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)])
         favoriteButton.addTarget(self, action: #selector(pressFavoriteButton), for: .touchUpInside)
         
     }
@@ -62,7 +62,8 @@ class HeaderView: UIView {
         favoriteButton.setImage(blackFavoriteImage, for: .normal)
         
         //User Defaults -> Guardar o prato favorito
-        saveFavorites.add(object: mealTitle.text!)
+        //saveFavorites.add(object: mealTitle.text!)
+        coreDataManager.saveFavoriteMeal(mealName: mealTitle.text!)
     }
     
 }

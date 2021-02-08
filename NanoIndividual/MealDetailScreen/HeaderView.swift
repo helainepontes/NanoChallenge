@@ -26,15 +26,16 @@ class HeaderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        if saveFavorites.existObjetc(object: mealTitle.text!) {
-//            let favoriteImage = UIImage(systemName: "star.fill")
-//            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
-//            favoriteButton.setImage(blackFavoriteImage, for: .normal)
-//        } else {
-//            let favoriteImage = UIImage(systemName: "star")
-//            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
-//            favoriteButton.setImage(blackFavoriteImage, for: .normal)
-//        }
+        let names = coreDataManager.fetchFavoriteMealNames()
+        if names!.contains(mealTitle.text!) {
+            let favoriteImage = UIImage(systemName: "star.fill")
+            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
+            favoriteButton.setImage(blackFavoriteImage, for: .normal)
+        } else {
+            let favoriteImage = UIImage(systemName: "star")
+            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
+            favoriteButton.setImage(blackFavoriteImage, for: .normal)
+        }
     }
     
     func configMealTitle() {
@@ -57,13 +58,18 @@ class HeaderView: UIView {
     }
     
     @objc func pressFavoriteButton(sender: UIButton) {
-        let favoriteImage = UIImage(systemName: "star.fill")
-        let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
-        favoriteButton.setImage(blackFavoriteImage, for: .normal)
-        
-        //User Defaults -> Guardar o prato favorito
-        //saveFavorites.add(object: mealTitle.text!)
-        coreDataManager.saveFavoriteMeal(mealName: mealTitle.text!)
+        let names = coreDataManager.fetchFavoriteMealNames()
+        if names!.contains(mealTitle.text!) {
+            let favoriteImage = UIImage(systemName: "star.fill")
+            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
+            favoriteButton.setImage(blackFavoriteImage, for: .normal)
+            coreDataManager.removeFavoriteMeal(name: mealTitle.text!)
+        } else {
+            let favoriteImage = UIImage(systemName: "star")
+            let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
+            favoriteButton.setImage(blackFavoriteImage, for: .normal)
+            coreDataManager.saveFavoriteMeal(mealName: mealTitle.text!)
+        }
     }
     
 }

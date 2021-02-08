@@ -53,7 +53,6 @@ class MealDetailViewController: UIViewController {
     
     func mealRequest() {
         let formattedString = meal.replacingOccurrences(of: " ", with: "%20")
-        print("String: \(formattedString)")
         let categoryRequest = NetworkRequest(meal: formattedString)
         categoryRequest.getMealDetail { result in
             switch result {
@@ -67,9 +66,9 @@ class MealDetailViewController: UIViewController {
         guard let saveDetails = readDetailDataFromFile() else {
             return
         }
-        print(saveDetails)
+        //print(saveDetails)
         detailMeal = saveDetails
-        mealImage.image = try? UIImage(withContentsOfUrl: detailMeal[0].strMealThumb)
+        //mealImage.image = try? UIImage(withContentsOfUrl: detailMeal[0].strMealThumb)
     }
     
     func configGradientView() {

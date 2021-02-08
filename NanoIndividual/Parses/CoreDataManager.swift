@@ -43,12 +43,26 @@ class CoreDataManager {
             }
         }
     }
-    
     func fetchFavoriteMeal() -> [MealPersistence]? {
         var meals: [MealPersistence]?
         let context = CoreDataManager.persistentContainer.viewContext
         do {
             meals = try context.fetch(MealPersistence.fetchRequest())
+        } catch {
+            print(error.localizedDescription)
+        }
+        return meals
+    }
+    
+    func fetchFavoriteMealNames() -> [String]? {
+        var meals: [String]?
+        let context = CoreDataManager.persistentContainer.viewContext
+        do {
+            let resultRequest = try context.fetch(MealPersistence.fetchRequest()) as? [MealPersistence]
+            meals = resultRequest!.map({ (meal) -> String in
+                let names = meal.name
+                return names ?? ""
+            })
         } catch {
             print(error.localizedDescription)
         }
@@ -62,9 +76,13 @@ class CoreDataManager {
         saveContext()
     }
     
-    func removeFavoriteMeal(meal: MealPersistence) {
+    func removeFavoriteMeal(name: String) {
         let context = CoreDataManager.persistentContainer.viewContext
-        context.delete(meal)
+        let arrayMeals = self.fetchFavoriteMeal()
+        let meal = arrayMeals?.filter({ (meal) -> Bool in
+            meal.name == name
+        }).first
+        context.delete(meal!)
         saveContext()
     }
 }

@@ -30,7 +30,7 @@ struct NetworkRequest {
     }
     init(meal: String) {
         let resourceString = "https://www.themealdb.com/api/json/v1/1/search.php?s=\(meal)"
-        print("URL : \(resourceString)")
+        //print("URL : \(resourceString)")
         
         guard let resourceURL = URL(string: resourceString) else {fatalError()}
         self.resourceURL = resourceURL

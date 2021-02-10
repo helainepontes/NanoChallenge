@@ -1,0 +1,6 @@
+framework module Pods_NanoIndividual {
+  umbrella header "Pods-NanoIndividual-umbrella.h"
+
+  export *
+  module * { export * }
+}

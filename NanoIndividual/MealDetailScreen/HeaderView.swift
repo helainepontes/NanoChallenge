@@ -11,7 +11,7 @@ import UIKit
 class HeaderView: UIView {
 
     let mealTitle = UILabel()
-    let favoriteButton = UIButton()
+    var favoriteButton = UIButton()
     let coreDataManager = CoreDataManager()
     
     override init(frame: CGRect) {
@@ -57,18 +57,16 @@ class HeaderView: UIView {
         
     }
     
-    @objc func pressFavoriteButton(sender: UIButton) {
+    @objc func pressFavoriteButton(sender: Animation) {
         let names = coreDataManager.fetchFavoriteMealNames()
         if names!.contains(mealTitle.text!) {
             let favoriteImage = UIImage(systemName: "star.fill")
             let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
             favoriteButton.setImage(blackFavoriteImage, for: .normal)
-            coreDataManager.removeFavoriteMeal(name: mealTitle.text!)
         } else {
             let favoriteImage = UIImage(systemName: "star")
             let blackFavoriteImage = favoriteImage?.withTintColor(.black, renderingMode: .alwaysOriginal)
             favoriteButton.setImage(blackFavoriteImage, for: .normal)
-            coreDataManager.saveFavoriteMeal(mealName: mealTitle.text!)
         }
     }
     

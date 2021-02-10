@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        guard let _ = (scene as? UIWindowScene) else { return }
         guard let windowScene = (scene as? UIWindowScene) else { return }
                 window = UIWindow(frame: UIScreen.main.bounds)
-                let guardar = MainTabBarController()
+                let guardar = WaitViewController()
                 window?.windowScene = windowScene
                 window?.rootViewController = guardar
                 

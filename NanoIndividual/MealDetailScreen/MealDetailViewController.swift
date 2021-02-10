@@ -42,6 +42,8 @@ class MealDetailViewController: UIViewController {
         configImage()
         configDetailsView()
         configGradientView()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -128,4 +130,45 @@ class MealDetailViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: detailsView.bottomAnchor).isActive = true
     }
 
+}
+
+extension MealDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Ingredients"
+        case 1:
+            return "Instructions"
+        default:
+            return ""
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = detailMeal[indexPath.row].strIngredient1
+            return cell
+        case 1:
+            let cell = UITableViewCell()
+            cell.textLabel?.text = detailMeal[indexPath.row].strInstructions
+            return cell
+        default:
+            let cell = UITableViewCell()
+            return cell
+        }
+    }
+    
 }

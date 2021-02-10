@@ -10,6 +10,8 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    var waitView: WaitViewController?
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -46,6 +48,9 @@ class CategoryViewController: UIViewController {
                 print(error)
             case .success(let categories):
                 self.listOfCategory = categories
+                if self.requestLoad() {
+                    self.waitView?.presentCategoryScreen()
+                }
                 createCategoryNewFile(data: categories)
             }
         }
@@ -95,6 +100,15 @@ class CategoryViewController: UIViewController {
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    func requestLoad() -> Bool {
+        if listOfCategory.count == 14 {
+            return true
+        }
+        else {
+            return false
+        }
     }
     
 }

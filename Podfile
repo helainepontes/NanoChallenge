@@ -6,7 +6,7 @@ target 'NanoIndividual' do
   use_frameworks!
 
   # Pods for NanoIndividual
-	pod 'DOFavoriteButton'
+	pod 'lottie-ios'
   target 'NanoIndividualTests' do
     inherit! :search_paths
     # Pods for testing

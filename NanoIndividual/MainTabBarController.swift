@@ -31,7 +31,7 @@ class MainTabBarController: UITabBarController {
         viewControllers = [categoryController, favoriteController, searchController]
         
         //Cor da tab
-        tabBar.barTintColor = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 0.94)
+        tabBar.barTintColor = UIColor(red: 0.9764, green: 0.9764, blue: 0.9764, alpha: 0.94)
         
         //Cor do ícone selecionado
         UITabBar.appearance().tintColor = .coralOrange

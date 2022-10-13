@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealDetailViewController: UIViewController {
+final class MealDetailViewController: UIViewController {
 
     var meal: String
     var mealImage = UIImageView()
@@ -77,10 +77,12 @@ class MealDetailViewController: UIViewController {
         
         //Constraints
         gradientView.translatesAutoresizingMaskIntoConstraints = false
-        gradientView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        gradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        gradientView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        NSLayoutConstraint.activate([
+            gradientView.topAnchor.constraint(equalTo: view.topAnchor)
+            gradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+            gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            gradientView.heightAnchor.constraint(equalToConstant: 200)
+        ])
     }
     
     func configImage() {
